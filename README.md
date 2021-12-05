@@ -2,9 +2,11 @@
 
 
 https://github.com/collective2/QuantData/blob/main/docs/QuantData_Content.ipynb
+
 [Start here.](https://github.com/collective2/QuantData/blob/main/docs/QuantData_Content.ipynb)
 
-https://nbviewer.org/github/collective2/QuantData/blob/main/docs/QuantData_Content.ipynb)
+https://nbviewer.org/github/collective2/QuantData/blob/main/docs/QuantData_Content.ipynb
+
 [Start here.](https://github.com/collective2/QuantData/blob/main/docs/QuantData_Content.ipynb)
 
 
