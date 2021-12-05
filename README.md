@@ -1,5 +1,6 @@
 # Collective2 Quant Data
 
-[Start here.](https://nbviewer.org/github/Svancara/QuantData/blob/main/docs/QuantData_Content.ipynb)
+[Start here.](https://nbviewer.org/github/collective2/QuantData/blob/main/QuantData_Content.ipynb)
+
     
 
