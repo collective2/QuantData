@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        .comment {
+            color: #408080;
+            font-style: italic;
+        }
+        .name {
+            color: brown;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h1>Daniil's Score Workbench formula (v1)</h1>
+
+    <p>We will use Daniil's <a href="https://collective2.com/scoring-workbench" target="_blank">Strategy Scoring Workbench</a> formula version 1 as an example in this text.</p>
+    <br>
+    <pre>
+    (
+
+    <span class="comment">#Risk metrics</span>
+    (20.0 - %[<span class="name">Max Equity Drawdown (Percent)</span>]% * (20.0/45))
+    +
+    (%[<span class="name">Max Open Loss Percent 90 Days</span>]% == "-" ? 0 : 20.0 - %[<span class="name">Max Open Loss Percent 90 Days</span>]% * (20.0/8))
+    +
+    (10 - %[<span class="name">Percent Trades Options</span>]% * (10/1))
+    +
+    (%[<span class="name">Short Options - Percent Covered</span>]% >= 100 ? 10 : %[<span class="name">Short Options - Percent Covered</span>]% / 100 * 10)
+
+
+    <span class="comment">#Behavioral metrics</span>
+    +
+    (%[<span class="name">Age Strategy (Days)</span>]% >= 720 ? 40.0 : %[<span class="name">Age Strategy (Days)</span>]%/720 * 40.0)
+    +
+    (20.0 - %[<span class="name">Daily Max Leverage (Max)</span>]% * (20.0/10))
+    +
+    (%[<span class="name">Latest Trade Days Ago</span>]% <= 60 ? 20 : 0)
+    +
+    (%[<span class="name">Percentage Months Profitable</span>]% >= 100 ? 5 : %[<span class="name">Percentage Months Profitable</span>]%/100 * 5)
+    +
+    (%[<span class="name">Num Trades All</span>]% >= 100 ? 20 : %[<span class="name">Num Trades All</span>]%/100 * 20)
+    +
+    ((%[<span class="name">Delta Equity 90 Days</span>]% <= 0 and %[<span class="name">Delta Equity 90 Days</span>]% > -7) ? 5 : 0)
+
+
+    <span class="comment">#Profitability metrics</span>
+    +
+    (%[<span class="name">Annualized Return Pcnt</span>]%  > 0.6 ? 20 : %[<span class="name">Annualized Return Pcnt</span>]% / 0.6 * 20)
+
+    )
+
+    *
+
+    <span class="comment">#Exclude strategies</span>
+    (%[<span class="name">Age Strategy (Days)</span>]% < 90 ? 0 : 1)
+    *
+    (%[<span class="name">Annualized Return Pcnt</span>]% < 0 ? 0 : 1)
+    *
+    (%[<span class="name">Delta Equity 180 Days</span>]% < 0 ? 0 : 1)
+
+    <span class="comment">#score_greater_than: 0#</span>
+</pre>
+</body>
+</html>
